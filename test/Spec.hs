@@ -11,7 +11,7 @@
 -- Main test file for the library.
 -----------------------------------------------------------------------------
 
-import           Lib
+import           Bpmn
 import           Test.Tasty
 import           Test.Tasty.HUnit
 
@@ -22,15 +22,9 @@ test :: TestTree
 test = testGroup "Tests" [maintests]
 
 maintests :: TestTree
-maintests = testGroup "unit tests" [uIsOrigin]
+maintests = testGroup "unit tests" [uDumb]
 
-uIsOrigin :: TestTree
-uIsOrigin =
-  testGroup "isOrigin"
-            [(testCase "at origin" $ (isOrigin (Point 0 0)) @?= True)
-            ,(testCase "not at origin, x not 0" $
-              (isOrigin (Point 1 0)) @?= False)
-            ,(testCase "not at origin, y not 0" $
-              (isOrigin (Point 0 1)) @?= False)
-            ,(testCase "not at origin, x and y not 0" $
-              (isOrigin (Point 2 3)) @?= False)]
+uDumb :: TestTree
+uDumb =
+  testGroup "dumb test"
+            [(testCase "dumb" $ someFunc)]
